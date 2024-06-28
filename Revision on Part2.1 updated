@@ -1,0 +1,25 @@
+class BootGenerator:
+    def __init__(self, boot_template, list_models, years):
+        self.boot_template = boot_template
+        self.list_models = list_models
+        self.years = years
+        
+    def generate_boot(self):
+        data = []
+        for model in self.list_models:
+            for year in self.years:
+                boot_data = {
+                    'Make': self.boot_template.make,
+                    'Model': model,
+                    'Vendor': self.boot_template.vendor,
+                    'Vendor Code': self.boot_template.vendorcode,
+                    'Types of Product': self.boot_template.types_product,
+                    'Vendor Notes': self.boot_template.vendornotes,
+                    'MPN': self.boot_template.mpn,
+                    'SKU': self.boot_template.sku,
+                    'Front/Rear': self.boot_template.front_rear,
+                    'Inboard/Outboard': self.boot_template.inboard_outboard,
+                    'Year': year
+                }
+                data.append(boot_data)
+        return pd. DataFrame(data)
