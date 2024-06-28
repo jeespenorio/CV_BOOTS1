@@ -1,0 +1,28 @@
+
+# Step 2: Define the Cablegenerator class
+class Cablegenerator:
+    def __init__(self, cable_template, list_models, years):
+        self.cable_template = cable_template
+        self.list_models = list_models
+        self.years = years
+
+    def generate_cable(self):
+        data = []
+        for model in self.list_models:
+            for year in self.years:
+             #   print(f"Generating data for model: {model}, year: {year}")  # Debugging line
+                cable_data = {
+                    'Make': self.cable_template.make,
+                    'Model': model,
+                    'Vendor': self.cable_template.vendor,
+                    'Vendor Code': self.cable_template.vendorcode,
+                    'Type of Product': self.cable_template.types_product,
+                    'Vendor Notes': self.cable_template.vendornotes,
+                    'MPN': self.cable_template.mpn,
+                    'SKU': self.cable_template.sku,
+                    'FRONT/REAR': self.cable_template.front_rear,
+                    'INBOARD/OUTBOARD': self.cable_template.inboard_outboard,
+                    'Year': year
+                }
+                data.append(cable_data)
+        return pd.DataFrame(data)
