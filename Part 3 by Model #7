@@ -1,0 +1,44 @@
+
+# Step 3: Initialize the Cable template
+boot_template = Boots(
+    make='YAMAHA',
+    model='All Model',
+    vendor='NACH',
+    vendorcode='NACHMANN INTERNATIONAL CO. LTD',
+    types_product='CV Boots Kit',
+    vendornotes='* OEM REPLACEMENT CV BOOT KITS. NO CUTTING OR TRIMMING NECESSARY. ; * EXCEEDS OEM QUALITY  ;* HUGE SELECTION OF ATV/UTV APPLICATIONS AVAILABLE ; * INCLUDES EVERYTHING YOU NEED TO REPLACE ONE CV BOOT:  BOOT,  CLAMPS, AND 100G OF GREASE.   ',
+    mpn='AT-08547',
+    sku='120029',
+    front_rear='REAR',
+    inboard_outboard='OUTBOARD'
+)
+
+# Step 4: Define the list of models and years
+list_models = [
+    
+'LT-A700X KingQuad 4x4',
+'YFM450 Kodiak 450',
+'YFM450 Kodiak 450 EPS',
+'YFM450 Kodiak 450 EPS SE',
+'YFM550 Grizzly FI 4x4 Auto',
+'YFM550 Grizzly FI 4x4 Auto EPS',
+'YFM700 Grizzly EPS',
+'YFM700 Grizzly EPS Camo',
+'YFM700 Grizzly EPS LE',
+'YFM700 Grizzly EPS SE',
+'YFM700 Grizzly EPS XT-R',
+'YFM700 Grizzly FI 4x4 Auto EPS',
+'YFM700 Grizzly FI 4x4 Auto EPS SE',
+'YFM700K Kodiak',
+'YFM700K Kodiak EPS',
+'YFM700K Kodiak EPS SE',
+
+]
+years = list(range(2005, 2024))
+
+# Step 5: Generate the cable DataFrame
+generator = BootGenerator(boot_template, list_models, years)
+final_df = generator.generate_boot()
+
+# Display the final DataFrame
+final_df
