@@ -1,0 +1,28 @@
+import pandas as pd
+#1
+class Cable:
+    def __init__(index, make, model, vendor, vendorcode, types_product, vendornotes, mpn, sku, front_rear, inboard_outboard):
+        index.make = make
+        index.model = model
+        index.vendor = vendor
+        index.vendorcode = vendorcode
+        index.types_product = types_product
+        index.vendornotes = vendornotes
+        index.mpn = mpn
+        index.sku = sku
+        index.front_rear = front_rear
+        index.inboard_outboard = inboard_outboard
+        
+    def to_dict(index):
+        return{
+            'Make':[index.make],
+            'Model':[index.model],
+            'Vendor':[index.vendor],
+            'Vendor Code':[index.vendorcode],
+            'Type of Product':[index.types_product],
+            'Vendor Notes':[index.vendornotes],
+            'MPN':[index.mpn],
+            'SKU':[index.sku],
+            'FRONT/REAR':[index.front_rear],
+            'INBOARD/OUTBOARD':[index.inboard_outboard]
+        }
